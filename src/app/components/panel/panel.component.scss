@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.panel_info {
+    background-color: #fff;
+    padding: 2em;
+}
