@@ -15,7 +15,7 @@ import { BlockComponent } from './components/block/block.component';
     BlockComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule
   ],
   providers: [],
