@@ -1,13 +1,65 @@
 :host {
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
   flex-direction: row;
-  justify-content: start;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
   width: 100%;
   background-size: cover;
   background-position: center center;
 }
 
+:host(.screen) {
+  height: 100vh;
+}
+
 .panel_info {
-    background-color: #fff;
-    padding: 2em;
+  z-index: 100;
+  background-color: #fff;
+  text-align: center;
+
+  /deep/ h1,
+  /deep/ h2 {
+    font-weight: 300;
+    margin-top: -5px;
+    margin-bottom: 0;
+  }
+  /deep/ h1 {
+    font-size: 84px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+  /deep/ h2 {
+    font-size: 32px;
+  }
+}
+
+.padding_35 {
+  padding: 35px;
+}
+
+.padding_20 {
+  padding: 20px;
+}
+
+.veil {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inear-gradient(-15deg, #ffffff 0%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 80%, white 100%);
 }
