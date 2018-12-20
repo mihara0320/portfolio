@@ -4,9 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:universal": "ng run portfolio:server",
     "build": "ng build",
-    "build:universal": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
