@@ -1,8 +1,26 @@
 <block>
-<panel [image]="'assets/profile.JPG'">
-    <h2>test</h2>
-
+  <panel class='screen' [image]="'assets/profile.JPG'">
+    <h1>Masaki Ihara</h1>
+    <h2>Software Engineer</h2>
   </panel>
 </block>
+
+<block class='bio'>
+  <h1>Masaki Ihara</h1>
+  <h2>Deep learning specialist</h2>
+  <p>Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House
+    is
+    tiled we aware. It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its
+    his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household.
+    Point could to built no hours smile sense. </p>
+</block>
+
+<block class='projects'>
+  <panel class='project' fxFlex="33" fxLayoutGap='10px' *ngFor="let project of projects" [image]="'assets/profile.JPG'">
+    <div> {{ project.title }} </div>
+  </panel>
+</block>
+
+
 
 <router-outlet></router-outlet>

@@ -1,13 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import './variables';
+@import './fonts';
+@import './custom-theme';
+@import './mixins';
 
 html,
 body,
 app-root {
-  width: 100vw;
-  overflow: hidden;
+  width: 100%;
+  overflow-x: hidden;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
 }
+
