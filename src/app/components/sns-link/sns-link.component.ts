@@ -6,11 +6,14 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./sns-link.component.scss']
 })
 export class SnsLinkComponent implements OnInit {
-  @Input() link: string;
+  @Input() url: string;
   
   constructor() { }
 
   ngOnInit() {
   }
 
+  openLink(){
+    window.open(this.url, "_blank");
+  }
 }

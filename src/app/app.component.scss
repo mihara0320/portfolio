@@ -40,7 +40,22 @@
 }
 
 #sns-links {
+  align-content: stretch;
+  align-items: stretch;
   background-color: #fafdff;
+}
 
+#contact {
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  div, a {
+    margin: 0.5em 0; 
+  }
+}
+#footer {
+  background-color: #7e0343;
+  color: #fff;
 }
 

@@ -16,18 +16,24 @@
 </block>
 
 <block id='projects'>
-  <panel class='project' fxFlex="50" fxFlex.gt-md="33" *ngFor="let project of projects" [image]="'assets/profile.JPG'">
+  <panel class='project' fxFlex="50" fxFlex.gt-sm="33" *ngFor="let project of projects" [image]="'assets/profile.JPG'">
     <div> {{ project.title }} </div>
   </panel>
 </block>
 
 <block class='block-body' id='sns-links'>
-  <div class='social' fxFlex="33" *ngFor="let social of socials">
+  <sns-link class='social' fxFlex="30" *ngFor="let social of socials" [url]="social.link">
     <svg-icon [name]="social.svg" [svgStyle]="{ 'width.px': 50 }"></svg-icon>
-    <sns-link [link]="social.link"> {{ social.text }} </sns-link>
-  </div>
+    <h2> {{ social.text }} </h2>
+  </sns-link>
 </block>
 
+<block class='block-body' id='contact'>
+  <div>Need a deep learning software developer?</div>
+  <div>I am actively looking for new challenges</div>
+  <a mat-stroked-button routerLink=".">Contact me</a>
+</block>
 
-
-<router-outlet></router-outlet>
+<!-- <block class='block-body' id='footer'>
+  <div></div>
+</block> -->

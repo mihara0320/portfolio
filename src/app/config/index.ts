@@ -2,7 +2,7 @@ import { PROJECTS } from './projects.config';
 import { SOCIALS } from './socials.config';
 import { IProject, ISocial } from '../models';
 
-interface IAppConfig {
+export interface IAppConfig {
     projects: IProject[];
     socials: ISocial[];
 }
