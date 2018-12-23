@@ -5,7 +5,7 @@
   </panel>
 </block>
 
-<block class='bio'>
+<block class='block-body' id='bio'>
   <h1>Masaki Ihara</h1>
   <h2>Deep learning specialist</h2>
   <p>Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House
@@ -15,10 +15,17 @@
     Point could to built no hours smile sense. </p>
 </block>
 
-<block class='projects'>
-  <panel class='project' fxFlex="33" fxLayoutGap='10px' *ngFor="let project of projects" [image]="'assets/profile.JPG'">
+<block id='projects'>
+  <panel class='project' fxFlex="50" fxFlex.gt-md="33" *ngFor="let project of projects" [image]="'assets/profile.JPG'">
     <div> {{ project.title }} </div>
   </panel>
+</block>
+
+<block class='block-body' id='sns-links'>
+  <div class='social' fxFlex="33" *ngFor="let social of socials">
+    <svg-icon [name]="social.svg" [svgStyle]="{ 'width.px': 50 }"></svg-icon>
+    <sns-link [link]="social.link"> {{ social.text }} </sns-link>
+  </div>
 </block>
 
 
