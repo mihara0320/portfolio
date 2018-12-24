@@ -1,0 +1,20 @@
+@import "~bootstrap/scss/bootstrap-grid";
+
+.panel_info {
+  position: relative;
+  padding: 50px;
+  background-color: scheme(1);
+  display: inline-block;
+  text-align: center;
+  z-index: 100;
+
+  @include media-breakpoint-down(lg) {
+    padding: 30px;
+  }
+
+  @include media-breakpoint-down(xs) {
+    width: 100%;
+    padding: 20px;
+    opacity: .8;
+  }
+}

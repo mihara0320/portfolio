@@ -16,7 +16,7 @@
 </block>
 
 <block id='projects'>
-  <panel class='project' fxFlex="50" fxFlex.gt-sm="33" *ngFor="let project of projects" [image]="'assets/profile.JPG'">
+  <panel class='project' fxFlex="33" fxFlex.lt-md="50" fxFlex.xs="100" *ngFor="let project of projects" [image]="'assets/profile.JPG'">
     <div> {{ project.title }} </div>
   </panel>
 </block>

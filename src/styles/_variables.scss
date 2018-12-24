@@ -37,11 +37,16 @@ icon4x: 56px,
 ) !default;
 
 // Override bootstrap variables here
+// $grid-breakpoints: (xs: 0,
+// sm: 544px,
+// md: 768px,
+// lg: 1280px,
+// xl: 1400px) !default;
 $grid-breakpoints: (xs: 0,
-sm: 544px,
-md: 768px,
+sm: 600px,
+md: 960px,
 lg: 1280px,
-xl: 1400px) !default;
+xl: 1920px) !default;
 
 $standard-transition: .3s ease;
 $quick-transition: .15s ease;
