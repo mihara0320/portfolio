@@ -1,4 +1,6 @@
 @import './responsive';
+@import 'variables';
+@import 'mixins';
 
 :host {
   display: -ms-flexbox;
@@ -45,7 +47,23 @@
 }
 
 :host-context(.project) {
+  cursor: pointer;
+  position: relative;
+
   .veil {
     display: none;
+  }
+
+  &.project:before {
+    content: '';
+    @include full();
+    background-color: rgba($black, 0);
+    transition: background-color $standard-transition;
+  }
+
+  &.project:hover {
+    &:before {
+      background-color: rgba($black, .4);
+    }
   }
 }

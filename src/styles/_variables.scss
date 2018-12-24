@@ -1,4 +1,13 @@
-// Main Colors
+// basics
+$scheme-colors: (#fff, #2b2928, #fafdff) !default;
+
+@function scheme($color) {
+  @return nth($scheme-colors, $color)
+}
+
+$white: scheme(1);
+$black: scheme(2);
+
 
 // Helper Colors
 $transparent-black-strongest: rgba(0, 0, 0, 0.9);
@@ -12,3 +21,27 @@ $transparent-white: rgba(255, 255, 255, 0.5);
 $transparent-white-weaker: rgba(255, 255, 255, 0.1);
 $transparent-white-weakest: rgba(255, 255, 255, 0.1);
 
+
+// * ———————————————————————————————————————————————————————— * //
+// * 	Font sizes
+// * ———————————————————————————————————————————————————————— * //
+
+$font_sizes: (xl: 84px,
+lg: 32px,
+md: 22px,
+sm: 16px,
+xs: 12px,
+icon: 14px,
+icon2x: 28px,
+icon4x: 56px,
+) !default;
+
+// Override bootstrap variables here
+$grid-breakpoints: (xs: 0,
+sm: 544px,
+md: 768px,
+lg: 1280px,
+xl: 1400px) !default;
+
+$standard-transition: .3s ease;
+$quick-transition: .15s ease;
