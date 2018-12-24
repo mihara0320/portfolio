@@ -1,20 +1,33 @@
-@import "~bootstrap/scss/bootstrap-grid";
-
 .panel_info {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   padding: 50px;
   background-color: scheme(1);
   display: inline-block;
   text-align: center;
   z-index: 100;
+        opacity: .8;
+}
 
-  @include media-breakpoint-down(lg) {
-    padding: 30px;
+:host(.screen) {
+  .panel_info {
+    @include media-breakpoint-down(lg) {
+      padding: 30px;
+    }
   }
+}
 
-  @include media-breakpoint-down(xs) {
-    width: 100%;
-    padding: 20px;
-    opacity: .8;
+:host(.project) {
+  .panel_info {
+    @include media-breakpoint-down(lg) {
+      padding: 17.5px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      width: 100%;
+      padding: 20px;
+      opacity: .8;
+    }
   }
 }

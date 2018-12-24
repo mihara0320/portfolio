@@ -1,0 +1,72 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 300;
+  margin-top: -5px;
+  margin-bottom: 0;
+}
+
+h1 {
+  @include font_size(xl);
+  margin-top: -10px;
+  margin-bottom: 10px;
+
+  @include media-breakpoint-down(lg) {
+    @include font_size(xl, false, .8);
+  }
+
+  @include media-breakpoint-down(md) {
+    @include font_size(xl, false, .6);
+  }
+
+  @include media-breakpoint-down(sm) {
+    @include font_size(lg, false, 1.5);
+  }
+
+  @include media-breakpoint-down(xs) {
+    @include font_size(lg, false, 1.0);
+  }
+}
+
+
+h2 {
+  @include font_size(lg);
+
+  @include media-breakpoint-down(lg) {
+    @include font_size(lg, false, 1);
+  }
+
+  @include media-breakpoint-down(md) {
+    @include font_size(lg, false, .8);
+  }
+
+  @include media-breakpoint-down(sm) {
+    @include font_size(md);
+  }
+
+  @include media-breakpoint-down(xs) {
+    @include font_size(md, false, .9);
+  }
+}
+
+h3 {
+  @include font_size(md);
+
+  @include media-breakpoint-down(lg) {
+    @include font_size(lg, false, .8);
+  }
+
+  @include media-breakpoint-down(md) {
+    @include font_size(lg, false, .6);
+  }
+
+  @include media-breakpoint-down(sm) {
+    @include font_size(md, false, .9);
+  }
+
+  @include media-breakpoint-down(xs) {
+    @include font_size(md, false, .8);
+  }
+}

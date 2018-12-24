@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 
-import * as simpleIcons from 'simple-icons'
+import * as simpleIcons from 'simple-icons';
 import { SvgIconRegistryService } from 'angular-svg-icon';
 import { ISocial, IProject } from './models';
 import { appConfig } from './config';
@@ -24,6 +24,10 @@ export class AppComponent {
         console.log(change);
       });
 
-    this.socials.forEach(s => this.iconReg.addSvg(s.svg, simpleIcons[s.svg].svg))
+    this.socials.forEach(s => this.iconReg.addSvg(s.svg, simpleIcons[s.svg].svg));
+  }
+
+  openLink(url) {
+    window.open(url, '_blank');
   }
 }

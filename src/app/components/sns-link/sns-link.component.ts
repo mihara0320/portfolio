@@ -7,13 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SnsLinkComponent implements OnInit {
   @Input() url: string;
-  
+
   constructor() { }
 
   ngOnInit() {
-  }
-
-  openLink(){
-    window.open(this.url, "_blank");
   }
 }

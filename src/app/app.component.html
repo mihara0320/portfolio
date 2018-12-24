@@ -1,11 +1,13 @@
 <block>
-  <panel class='screen' [image]="'assets/profile.JPG'">
+  <panel class='screen'
+         [image]="'assets/images/profile-min.JPG'">
     <h1>Masaki Ihara</h1>
     <h2>Software Engineer</h2>
   </panel>
 </block>
 
-<block class='block-body' id='bio'>
+<block class='block-body'
+       id='bio'>
   <h1>Masaki Ihara</h1>
   <h2>Deep learning specialist</h2>
   <p>Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House
@@ -15,23 +17,38 @@
     Point could to built no hours smile sense. </p>
 </block>
 
-<block id='projects'>
-  <panel class='project' fxFlex="33" fxFlex.lt-md="50" fxFlex.xs="100" *ngFor="let project of projects" [image]="'assets/profile.JPG'">
+<block id='projects'
+       fxLayoutAlign="space-around">
+  <panel class='project'
+         fxFlex="33.3334"
+         fxFlex.lt-md="50"
+         fxFlex.xs="100"
+         *ngFor="let project of projects"
+         [image]="project.image"
+         (click)="openLink(project.link)">
     <div> {{ project.title }} </div>
   </panel>
 </block>
 
-<block class='block-body' id='sns-links'>
-  <sns-link class='social' fxFlex="30" *ngFor="let social of socials" [url]="social.link">
-    <svg-icon [name]="social.svg" [svgStyle]="{ 'width.px': 50 }"></svg-icon>
+<block class='block-body'
+       id='sns-links'>
+  <sns-link class='social'
+            fxFlex="30"
+            fxFlex.xs='100'
+            *ngFor="let social of socials"
+            (click)="openLink(social.link)">
+    <svg-icon [name]="social.svg"
+              [svgStyle]="{ 'width.em': 3, 'margin.em' : 1.5 }"></svg-icon>
     <h2> {{ social.text }} </h2>
   </sns-link>
 </block>
 
-<block class='block-body' id='contact'>
-  <div>Need a deep learning software developer?</div>
-  <div>I am actively looking for new challenges</div>
-  <a mat-stroked-button routerLink=".">Contact me</a>
+<block class='block-body'
+       id='contact'>
+  <h2>Need a deep learning software developer?</h2>
+  <h3>I am actively looking for new challenges</h3>
+  <a mat-stroked-button
+     routerLink=".">Contact me</a>
 </block>
 
 <!-- <block class='block-body' id='footer'>
