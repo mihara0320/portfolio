@@ -8,7 +8,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 export const MODULES = [
     FlexLayoutModule,
     MaterialModule,
-    AngularSvgIconModule 
+    AngularSvgIconModule
 ];
 
 @NgModule({
