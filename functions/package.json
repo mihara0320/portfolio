@@ -1,0 +1,28 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "@angular/animations": "^7.1.0",
+    "@angular/common": "^7.1.0",
+    "@angular/compiler": "~7.1.0",
+    "@angular/core": "~7.1.0",
+    "@angular/forms": "~7.1.0",
+    "@angular/http": "^7.1.4",
+    "@angular/platform-browser": "~7.1.0",
+    "@angular/platform-browser-dynamic": "~7.1.0",
+    "@angular/platform-server": "^7.1.4",
+    "express": "^4.15.2",
+    "firebase-admin": "~6.0.0",
+    "firebase-functions": "^2.1.0",
+    "rxjs": "~6.3.3",
+    "zone.js": "~0.8.26"
+  },
+  "private": true
+}

@@ -6,8 +6,10 @@
     "build": "ng build",
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
-    "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run portfolio:server:production"
+    "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server && npm run copy",
+    "build:client-and-server-bundles": "ng build --prod && ng run portfolio:server:production",
+    "copy": "copyfiles -u 1 firebase/* public && copyfiles -a dist public",
+    "deploy": "firebase deploy"
   },
   "private": true,
   "dependencies": {
