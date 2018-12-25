@@ -3,7 +3,7 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 
 import * as simpleIcons from 'simple-icons';
 import { SvgIconRegistryService } from 'angular-svg-icon';
-import { ISocial, IProject } from './models';
+import { ISocial, IProject, IBasics } from './models';
 import { appConfig } from './config';
 
 @Component({
@@ -12,6 +12,7 @@ import { appConfig } from './config';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  info: IBasics = appConfig.basics;
   projects: IProject[] = appConfig.projects;
   socials: ISocial[] = appConfig.socials;
 
@@ -21,13 +22,18 @@ export class AppComponent {
   ) {
     media.asObservable()
       .subscribe((change: MediaChange) => {
-        console.log(change);
+        // console.log(change);
       });
 
     this.socials.forEach(s => this.iconReg.addSvg(s.svg, simpleIcons[s.svg].svg));
   }
 
   openLink(url) {
+    if (url === '') { return ; }
     window.open(url, '_blank');
+  }
+
+  openMailClient() {
+    window.open(`mailto:${this.info.email}?subject=${this.info.subject}`, '_self');
   }
 }

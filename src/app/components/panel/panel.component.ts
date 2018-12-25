@@ -6,13 +6,17 @@ import { Component, OnInit, Input, HostBinding } from '@angular/core';
   styleUrls: ['./panel.component.scss']
 })
 export class PanelComponent implements OnInit {
-  @Input() image;
-  @HostBinding('style.background-image')
-  backgroundImage = null;
+  @Input() image: string;
+  @HostBinding('style.background-image') backgroundImage = null;
+
+  @Input() disabled: boolean;
+  @HostBinding('class.disabled') disabledClass: boolean;
 
   constructor() { }
 
   ngOnInit() {
-    this.backgroundImage = 'url(' + this.image + ')';
+    this.backgroundImage = `url(${this.image})`;
+    this.disabledClass = this.disabled;
+
   }
 }

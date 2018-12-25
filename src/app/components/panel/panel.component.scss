@@ -34,7 +34,7 @@
 }
 
 :host-context(.screen) {
-    height: 100vh;
+  height: 100vh;
 }
 
 :host-context(.project) {
@@ -43,6 +43,10 @@
 
   .veil {
     display: none;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
   }
 
   &:before {

@@ -1,20 +1,16 @@
 <block>
   <panel class='screen'
          [image]="'assets/images/profile-min.JPG'">
-    <h1>Masaki Ihara</h1>
-    <h2>Software Engineer</h2>
+    <h1>{{ info.name }}</h1>
+    <h2>{{ info.title1 }}</h2>
   </panel>
 </block>
 
 <block class='block-body'
        id='bio'>
-  <h1>Masaki Ihara</h1>
-  <h2>Deep learning specialist</h2>
-  <p>Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House
-    is
-    tiled we aware. It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its
-    his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household.
-    Point could to built no hours smile sense. </p>
+  <h1>{{ info.name }}</h1>
+  <h2>{{ info.title2 }}</h2>
+  <p>{{ info.bio }}</p>
 </block>
 
 <block id='projects'
@@ -25,6 +21,7 @@
          fxFlex.xs="100"
          *ngFor="let project of projects"
          [image]="project.image"
+         [disabled]="project.link === ''"
          (click)="openLink(project.link)">
     <div> {{ project.title }} </div>
   </panel>
@@ -45,10 +42,10 @@
 
 <block class='block-body'
        id='contact'>
-  <h2>Need a deep learning software developer?</h2>
-  <h3>I am actively looking for new challenges</h3>
+  <h2>{{ info.motd1 }}</h2>
+  <h3>{{ info.motd2 }}</h3>
   <a mat-stroked-button
-     routerLink=".">Contact me</a>
+     (click)="openMailClient()">Contact me</a>
 </block>
 
 <!-- <block class='block-body' id='footer'>
