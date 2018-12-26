@@ -6,8 +6,7 @@
   </panel>
 </block>
 
-<block class='block-body'
-       id='bio'>
+<block id='bio'>
   <h1>{{ info.name }}</h1>
   <h2>{{ info.title2 }}</h2>
   <p>{{ info.bio }}</p>
@@ -16,7 +15,7 @@
 <block id='projects'
        fxLayoutAlign="space-around">
   <panel class='project'
-         fxFlex.gt-sm="33"
+         fxFlex.gt-sm="33.3"
          fxFlex="50"
          fxFlex.xs="100"
          *ngFor="let project of projects"
@@ -40,8 +39,7 @@
   </sns-link>
 </block>
 
-<block class='block-body'
-       id='contact'>
+<block id='contact'>
   <h2>{{ info.motd1 }}</h2>
   <h3>{{ info.motd2 }}</h3>
   <a mat-stroked-button

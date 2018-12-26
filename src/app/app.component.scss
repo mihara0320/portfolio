@@ -3,24 +3,6 @@
 :host {
   @include flex();
   width: 100%;
-
-  .block-body {
-    @include media-breakpoint-up(lg) {
-      padding: 3em 9em;
-    }
-
-    @include media-breakpoint-down(md) {
-      padding: 3em 8em;
-    }
-
-    @include media-breakpoint-down(sm) {
-      padding: 1.5em 7em;
-    }
-
-    @include media-breakpoint-down(xs) {
-      padding: 1em 3.5em;
-    }
-  }
 }
 
 #bio {
@@ -30,6 +12,20 @@
   align-content: flex-start;
   align-items: flex-start;
   margin: 0 auto;
+  padding: 3em 0;
+
+  // @include media-breakpoint-up(lg) {
+  //   padding: 3em 9em;
+  // }
+
+  // @include media-breakpoint-down(md) {
+  //   padding: 3em 8em;
+  // }
+
+  @include media-breakpoint-down(sm) {
+    padding: 1.5em 0;
+    max-width: 80%;
+  }
 }
 
 #projects {
@@ -43,12 +39,14 @@
   align-content: stretch;
   align-items: stretch;
   background-color: #fafdff;
+  padding: 2em;
 }
 
 #contact {
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
+  padding: 2em;
 
   h2,
   h3,
