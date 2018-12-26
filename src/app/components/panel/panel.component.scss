@@ -3,6 +3,7 @@
 
 :host {
   @include flex();
+  position: relative;
   width: 100%;
   background-size: cover;
   background-color: scheme(1);
@@ -17,11 +18,11 @@
   }
 
   @include media-breakpoint-down(sm) {
-    min-height: 250px;
+    min-height: 275px;
   }
 
   @include media-breakpoint-down(xs) {
-    min-height: 200px;
+    min-height: 250px;
   }
 
   @each $color in $scheme-colors {
@@ -35,6 +36,10 @@
 
 :host-context(.screen) {
   height: 100vh;
+
+  @include media-breakpoint-down(lg) {
+    background-position: 85% center;
+  }
 }
 
 :host-context(.project) {

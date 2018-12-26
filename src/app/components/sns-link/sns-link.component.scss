@@ -15,7 +15,7 @@
     text-decoration: underline;
   }
 
-  @include font_size(sm);
+  // @include font_size(xs);
 
   @include media-breakpoint-down(xs) {
     width: 100%;

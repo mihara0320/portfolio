@@ -16,8 +16,8 @@
 <block id='projects'
        fxLayoutAlign="space-around">
   <panel class='project'
-         fxFlex="33.3334"
-         fxFlex.lt-md="50"
+         fxFlex.gt-sm="33"
+         fxFlex="50"
          fxFlex.xs="100"
          *ngFor="let project of projects"
          [image]="project.image"
@@ -36,7 +36,7 @@
             (click)="openLink(social.link)">
     <svg-icon [name]="social.svg"
               [svgStyle]="{ 'width.em': 3, 'margin.em' : 1.5 }"></svg-icon>
-    <h2> {{ social.text }} </h2>
+    <h3> {{ social.text }} </h3>
   </sns-link>
 </block>
 
