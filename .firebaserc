@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "portfolio-226109"
+  },
+  "targets": {
+    "portfolio-226109": {
+      "hosting": {
+        "portfolio": [
+          "portfolio-226109"
+        ]
+      }
+    }
   }
 }
