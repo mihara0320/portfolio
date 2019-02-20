@@ -4,6 +4,16 @@
     <h1>{{ info.name }}</h1>
     <h2>{{ info.title1 }}</h2>
   </panel>
+
+  <sns-link (click)="openLink('https://github.com/mihara0320/portfolio')"
+            [horizontal]="true"
+            fxLayout="row"
+            fxLayoutAlign="end center"
+            style="padding: 0 1em;">
+    <svg-icon name="GitHub"
+              [svgStyle]="{ 'width.em': 1.5, 'margin.em' : 1 }"></svg-icon>
+    <h3> Source code </h3>
+  </sns-link>
 </block>
 
 <block id='bio'>

@@ -14,14 +14,6 @@
   margin: 0 auto;
   padding: 3em 0;
 
-  // @include media-breakpoint-up(lg) {
-  //   padding: 3em 9em;
-  // }
-
-  // @include media-breakpoint-down(md) {
-  //   padding: 3em 8em;
-  // }
-
   @include media-breakpoint-down(sm) {
     padding: 1.5em 0;
     max-width: 80%;

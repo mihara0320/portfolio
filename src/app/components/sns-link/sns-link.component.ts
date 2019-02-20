@@ -7,9 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SnsLinkComponent implements OnInit {
   @Input() url: string;
+  @Input() horizontal: boolean;
+  @Input() vertical: boolean;
 
-  constructor() { }
-
+  direction = 'column';
   ngOnInit() {
+    this.horizontal && (this.direction = 'row');
+    this.vertical && (this.direction = 'column');
   }
 }
