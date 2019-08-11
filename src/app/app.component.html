@@ -1,6 +1,8 @@
+<particle-bg></particle-bg>
+
 <block>
   <panel class='screen'
-         [image]="'assets/images/profile-min.JPG'">
+         image="assets/images/profile-min.jpg">
     <h1>{{ info.name }}</h1>
     <h2>{{ info.title1 }}</h2>
   </panel>
@@ -54,8 +56,4 @@
   <h3>{{ info.motd2 }}</h3>
   <a mat-stroked-button
      (click)="openMailClient()">Contact me</a>
-</block>
-
-<!-- <block class='block-body' id='footer'>
-  <div></div>
-</block> -->
+</block> 

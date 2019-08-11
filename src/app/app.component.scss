@@ -3,16 +3,18 @@
 :host {
   @include flex();
   width: 100%;
+  max-width: 1750px;
+  margin: auto;
 }
 
 #bio {
-  max-width: 900px;
+  // max-width: 900px;
   flex-direction: column;
   justify-content: start;
   align-content: flex-start;
   align-items: flex-start;
   margin: 0 auto;
-  padding: 3em 0;
+  padding: 3em;
 
   @include media-breakpoint-down(sm) {
     padding: 1.5em 0;
