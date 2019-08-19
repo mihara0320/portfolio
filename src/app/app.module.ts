@@ -9,6 +9,9 @@ import { PanelComponent } from './components/panel/panel.component';
 import { SnsLinkComponent } from './components/sns-link/sns-link.component';
 import { BlockComponent } from './components/block/block.component';
 import { ParticleBgComponent } from './components/particle-bg/particle-bg.component';
+import { NgtUniversalModule } from '@ng-toolkit/universal';
+
+export declare var particlesJS: any;
 
 @NgModule({
   declarations: [
@@ -21,9 +24,19 @@ import { ParticleBgComponent } from './components/particle-bg/particle-bg.compon
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
-    SharedModule.forRoot()
+    SharedModule.forRoot(),
+    NgtUniversalModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'windowObject', useFactory: () => {
+        return window;
+      }
+    },
+    { provide: 'particlesObject', useFactory: () => {
+      return particlesJS;
+    }}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

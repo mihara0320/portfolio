@@ -1,8 +1,16 @@
 // Load zone.js for the server.
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
-import {readFileSync, writeFileSync, existsSync, mkdirSync} from 'fs';
-import {join} from 'path';
+
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import { join } from 'path';
+
+// import * as domino from 'domino';
+
+// const template = readFileSync(join('browser', 'index.html'), 'utf8').toString();
+// const win = domino.createWindow(template);
+// global['window'] = win;
+// global['document'] = win.document;
 
 import {enableProdMode} from '@angular/core';
 // Faster server renders w/ Prod mode (dev mode never needed)
@@ -20,6 +28,7 @@ const BROWSER_FOLDER = join(process.cwd(), 'browser');
 
 // Load the index.html file containing referances to your application bundle.
 const index = readFileSync(join('browser', 'index.html'), 'utf8');
+
 
 let previousRender = Promise.resolve();
 

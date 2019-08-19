@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformServer } from '@angular/common';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 
 import * as simpleIcons from 'simple-icons';
@@ -11,14 +12,15 @@ import { appConfig } from './config';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   info: IBasics = appConfig.basics;
   projects: IProject[] = appConfig.projects;
   socials: ISocial[] = appConfig.socials;
 
   constructor(
     public media: ObservableMedia,
-    private iconReg: SvgIconRegistryService
+    private iconReg: SvgIconRegistryService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     media.asObservable()
       .subscribe((change: MediaChange) => {
@@ -28,12 +30,18 @@ export class AppComponent {
     this.socials.forEach(s => this.iconReg.addSvg(s.svg, simpleIcons[s.svg].svg));
   }
 
+  ngOnInit() {
+    if (isPlatformServer(this.platformId)) {
+      var document: any;
+    }
+  }
+
   openLink(url) {
     if (url === '') { return ; }
     window.open(url, '_blank');
   }
 
   openMailClient() {
-    window.open(`mailto:${this.info.email}?subject=${this.info.subject}`, '_self');
+    window.open(`mailto:${this.info.email}?subject=${this.info.subject}`, '_self')
   }
 }

@@ -54,6 +54,8 @@
 <block id='contact'>
   <h2>{{ info.motd1 }}</h2>
   <h3>{{ info.motd2 }}</h3>
-  <a mat-stroked-button
-     (click)="openMailClient()">Contact me</a>
-</block> 
+
+  <button mat-raised-button
+          color="primary"
+          (click)="openMailClient()">Contact me</button>
+</block>
