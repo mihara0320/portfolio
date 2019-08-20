@@ -1,11 +1,11 @@
 import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformServer } from '@angular/common';
-import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 
 import * as simpleIcons from 'simple-icons';
 import { SvgIconRegistryService } from 'angular-svg-icon';
 import { ISocial, IProject, IBasics } from './models';
 import { appConfig } from './config';
+
 import { WINDOW } from '@ng-toolkit/universal';
 
 @Component({
@@ -19,15 +19,9 @@ export class AppComponent implements OnInit {
   socials: ISocial[] = appConfig.socials;
 
   constructor(@Inject(WINDOW) private window: Window, 
-    public media: ObservableMedia,
     private iconReg: SvgIconRegistryService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
-    media.asObservable()
-      .subscribe((change: MediaChange) => {
-        // console.log(change);
-      });
-
     this.socials.forEach(s => this.iconReg.addSvg(s.svg, simpleIcons[s.svg].svg));
   }
 

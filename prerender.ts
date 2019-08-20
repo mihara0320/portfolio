@@ -1,8 +1,10 @@
 const domino = require('domino');
 const fs = require('fs');
+const fse = require('fs-extra')
 const template = fs.readFileSync('./dist/browser/index.html').toString();
 const win = domino.createWindow(template);
 const filesBrowser = fs.readdirSync(`${process.cwd()}/dist/browser`)
+
 
 global['window'] = win;
 Object.defineProperty(win.document.body.style, 'transform', {
@@ -16,6 +18,10 @@ Object.defineProperty(win.document.body.style, 'transform', {
 global['document'] = win.document;
 global['CSS'] = null;
 global['Prism'] = null;
+
+// import 'particles.js';
+// declare var particlesJS: any;
+global['particlesJS'] = null;
 
 import * as ts from 'typescript';
 
@@ -158,7 +164,7 @@ allRoutes.forEach((route) => {
 // copy static files
 filesBrowser.forEach(file => {
     if (file !== 'index.html') {
-        fs.copyFileSync(`./dist/browser/${file}`, `./dist/static/${file}`);
+        fse.copySync(`./dist/browser/${file}`, `./dist/static/${file}`);
     }
 });
 
