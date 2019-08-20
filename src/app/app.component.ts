@@ -6,6 +6,7 @@ import * as simpleIcons from 'simple-icons';
 import { SvgIconRegistryService } from 'angular-svg-icon';
 import { ISocial, IProject, IBasics } from './models';
 import { appConfig } from './config';
+import { WINDOW } from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,7 @@ export class AppComponent implements OnInit {
   projects: IProject[] = appConfig.projects;
   socials: ISocial[] = appConfig.socials;
 
-  constructor(
+  constructor(@Inject(WINDOW) private window: Window, 
     public media: ObservableMedia,
     private iconReg: SvgIconRegistryService,
     @Inject(PLATFORM_ID) private platformId: Object
@@ -38,10 +39,10 @@ export class AppComponent implements OnInit {
 
   openLink(url) {
     if (url === '') { return ; }
-    window.open(url, '_blank');
+    this.window.open(url, '_blank');
   }
 
   openMailClient() {
-    window.open(`mailto:${this.info.email}?subject=${this.info.subject}`, '_self')
+    this.window.open(`mailto:${this.info.email}?subject=${this.info.subject}`, '_self')
   }
 }

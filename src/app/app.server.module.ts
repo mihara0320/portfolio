@@ -1,24 +1,17 @@
 import { NgModule } from '@angular/core';
-import { ServerModule } from '@angular/platform-server';
+import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
 
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
-import { FlexLayoutServerModule } from '@angular/flex-layout/server';
-
-import 'particles.js';
-export declare var particlesJS: any;
+import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
 
 @NgModule({
   imports: [
     AppModule,
     ServerModule,
-    FlexLayoutServerModule
+    ModuleMapLoaderModule,
+    ServerTransferStateModule,
   ],
-  providers: [{
-    provide: 'windowObject', useValue: {}
-  },{
-      provide: 'particlesObject', useValue: particlesJS
-  }],
   bootstrap: [AppComponent],
 })
 export class AppServerModule {}

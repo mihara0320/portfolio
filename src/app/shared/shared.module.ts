@@ -6,14 +6,20 @@ import { CommonModule } from '@angular/common';
 import { ExternalModule } from './externals/external.module';
 
 
-const MODULES = [
-    CommonModule,
-    ExternalModule,
-];
+// const SHARED_MODULES = [
+//     CommonModule,
+//     ExternalModule,
+// ];
 
 @NgModule({
-    imports: MODULES,
-    exports: MODULES,
+    imports: [
+        // CommonModule,
+        // ExternalModule,
+    ],
+    exports: [
+        CommonModule,
+        ExternalModule,
+    ],
 })
 export class SharedModule {
     static forRoot(): ModuleWithProviders {

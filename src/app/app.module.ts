@@ -8,7 +8,9 @@ import { AppComponent } from './app.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { SnsLinkComponent } from './components/sns-link/sns-link.component';
 import { BlockComponent } from './components/block/block.component';
-import { ParticleBgComponent } from './components/particle-bg/particle-bg.component';
+// import { ParticleBgComponent } from './components/particle-bg/particle-bg.component';
+
+import { TransferHttpCacheModule } from '@nguniversal/common';
 import { NgtUniversalModule } from '@ng-toolkit/universal';
 
 export declare var particlesJS: any;
@@ -19,23 +21,14 @@ export declare var particlesJS: any;
     PanelComponent,
     SnsLinkComponent,
     BlockComponent,
-    ParticleBgComponent
+    // ParticleBgComponent
   ],
   imports: [
+    SharedModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    TransferHttpCacheModule,
     HttpClientModule,
-    SharedModule.forRoot(),
-    NgtUniversalModule
-  ],
-  providers: [
-    {
-      provide: 'windowObject', useFactory: () => {
-        return window;
-      }
-    },
-    { provide: 'particlesObject', useFactory: () => {
-      return particlesJS;
-    }}
+    NgtUniversalModule,
   ],
   bootstrap: [AppComponent]
 })
