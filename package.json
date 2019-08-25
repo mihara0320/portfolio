@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "start": "ng serve",
+    "deploy": "npm run build:prerender && firebase deploy --only hosting",
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node local.js",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
