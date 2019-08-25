@@ -1,13 +1,13 @@
 const domino = require('domino');
 const fs = require('fs');
-const fse = require('fs-extra')
+const fse = require('fs-extra');
 const template = fs.readFileSync('./dist/browser/index.html').toString();
-const win = domino.createWindow(template);
-const filesBrowser = fs.readdirSync(`${process.cwd()}/dist/browser`)
+const window = domino.createWindow(template);
+const filesBrowser = fs.readdirSync(`${process.cwd()}/dist/browser`);
 
 
-global['window'] = win;
-Object.defineProperty(win.document.body.style, 'transform', {
+global['window'] = window;
+Object.defineProperty(window.document.body.style, 'transform', {
   value: () => {
     return {
       enumerable: true,
@@ -15,12 +15,13 @@ Object.defineProperty(win.document.body.style, 'transform', {
     };
   },
 });
-global['document'] = win.document;
+global['document'] = window.document;
 global['CSS'] = null;
 global['Prism'] = null;
 
-// import 'particles.js';
+// require('particles.js');
 // declare var particlesJS: any;
+
 global['particlesJS'] = null;
 
 import * as ts from 'typescript';
@@ -54,9 +55,9 @@ const angularConfiguration = JSON.parse(fs.readFileSync('./angular.json').toStri
 
 let universalProjectEntryFile;
 
-for (let project in angularConfiguration.projects) {
-  if(angularConfiguration.projects.hasOwnProperty(project)) {
-    for (let architect in angularConfiguration.projects[project].architect ) {
+for (const project in angularConfiguration.projects) {
+  if (angularConfiguration.projects.hasOwnProperty(project)) {
+    for (const architect in angularConfiguration.projects[project].architect ) {
       if (angularConfiguration.projects[project].architect.hasOwnProperty(architect)) {
         const architectSettings = angularConfiguration.projects[project].architect[architect];
         if (architectSettings.builder === '@angular-devkit/build-angular:server') {
@@ -67,19 +68,19 @@ for (let project in angularConfiguration.projects) {
   }
 }
 
-const sourceDir = universalProjectEntryFile.substring(0,universalProjectEntryFile.lastIndexOf('/')+1);
+const sourceDir = universalProjectEntryFile.substring(0, universalProjectEntryFile.lastIndexOf('/') + 1);
 
 const entryFileSource = ts.createSourceFile('temp', fs.readFileSync(universalProjectEntryFile).toString(), ts.ScriptTarget.Latest);
 
 let entryModulePath;
 
 entryFileSource.forEachChild(node => {
-  if(ts.isExportDeclaration(node)) {
+  if (ts.isExportDeclaration(node)) {
     node.forEachChild(node => {
       if (ts.isStringLiteral(node)) {
         entryModulePath = (sourceDir + node.text + '.ts');
       }
-    })
+    });
   }
 });
 
@@ -93,29 +94,29 @@ function routingMapper(entry) {
   } else {
     return {path: entry.path, visit: (!!entry.component || !!entry.redirectTo)};
   }
-};
+}
 
 routing = routing.map(routingMapper);
 
 let allRoutes = ROUTES;
 
-if(allRoutes.length == 0) {
+if (allRoutes.length === 0) {
   allRoutes.push('/');
 }
 
 console.log(`Got following static routes:`);
 allRoutes.forEach(route => console.log(route));
-console.log(`And following found in the application:`)
+console.log(`And following found in the application:`);
 
 function addToRoutes(routing: any[], basePath: string) {
   routing.forEach(element => {
-    if (element.visit && element.path.indexOf(':') == -1) {
-      if (allRoutes.indexOf(basePath + element.path) == -1 ) {
+    if (element.visit && element.path.indexOf(':') === -1) {
+      if (allRoutes.indexOf(basePath + element.path) === -1 ) {
         allRoutes = allRoutes.concat(basePath + element.path);
         console.log(basePath + element.path);
       }
       if (element.children) {
-        basePath += element.path != ''?element.path + '/':element.path;
+        basePath += element.path !== '' ? element.path + '/' : element.path;
         addToRoutes(element.children, basePath);
       }
     }
@@ -176,8 +177,8 @@ function findRoutes(sourceCode: string, path: string) {
     node.getChildren().filter(node => ts.isClassDeclaration(node)).forEach((node: ts.Node) => {
       if (node.decorators) {
         node.forEachChild(node => node.forEachChild(decoratorNode => {
-          if (ts.isCallExpression(decoratorNode) && 
-          ts.isIdentifier(decoratorNode.expression) && 
+          if (ts.isCallExpression(decoratorNode) &&
+          ts.isIdentifier(decoratorNode.expression) &&
           decoratorNode.expression.escapedText === 'NgModule'
           ) {
             decoratorNode.arguments.forEach(node => {
@@ -196,10 +197,10 @@ function findRoutes(sourceCode: string, path: string) {
                       const argument = node.arguments[0];
                       let routes;
                       if (ts.isIdentifier(argument)) {
-                        // variable 
+                        // variable
                         const varName = argument.escapedText;
                         SourceCodeObj.forEachChild(node => {
-                          if(ts.isVariableStatement(node) && (<ts.Identifier> node.declarationList.declarations[0].name).escapedText === varName)  {
+                          if (ts.isVariableStatement(node) && (<ts.Identifier> node.declarationList.declarations[0].name).escapedText === varName)  {
                             const initializer = node.declarationList.declarations[0].initializer;
                             routes = sourceCode.substring(initializer.pos, initializer.end);
                           }
@@ -209,8 +210,8 @@ function findRoutes(sourceCode: string, path: string) {
                         // array
                         routes = sourceCode.substring(node.arguments.pos, node.arguments.end);
                       }
-                      
-                      routes = routes.replace(/(.*?:\s)([^'"`].*?[^'"`])((\s*?),|(\s*?)})/g, "$1'$2'$3");
+
+                      routes = routes.replace(/(.*?:\s)([^'"`].*?[^'"`])((\s*?),|(\s*?)})/g, '$1\'$2\'$3');
                       eval('routes = ' + routes);
                       // console.log(routes);
                     }
@@ -221,7 +222,7 @@ function findRoutes(sourceCode: string, path: string) {
               }
             });
           }
-        }))
+        }));
       }
     });
   });
@@ -230,11 +231,11 @@ function findRoutes(sourceCode: string, path: string) {
     if (ts.isImportDeclaration(node)) {
       node.importClause.namedBindings.forEachChild(name => {
         const identifierIndex = identifiers.indexOf((<ts.ImportSpecifier> name).name.escapedText);
-        if (identifierIndex > -1 && (<ts.StringLiteral>node.moduleSpecifier).text.indexOf('.') == 0) {
+        if (identifierIndex > -1 && (<ts.StringLiteral>node.moduleSpecifier).text.indexOf('.') === 0) {
           identifiers[identifierIndex] = {
             module: identifiers[identifierIndex],
-            path: path.substring(0,entryModulePath.lastIndexOf('/')+1) + (<ts.StringLiteral>node.moduleSpecifier).text + '.ts'
-          }
+            path: path.substring(0, entryModulePath.lastIndexOf('/') + 1) + (<ts.StringLiteral>node.moduleSpecifier).text + '.ts'
+          };
         }
       });
     }
@@ -244,7 +245,7 @@ function findRoutes(sourceCode: string, path: string) {
     return {path: entry.path, importedIn: path};
   });
 
-  if (routes.length == 0) {
+  if (routes.length === 0) {
     identifiers.forEach(identifier => {
       const nested = findRoutes(fs.readFileSync(identifier.path).toString(), identifier.path);
       // if (nested.length >= 1) {

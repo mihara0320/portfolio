@@ -13,8 +13,8 @@ import { ParticleBgComponent } from './components/particle-bg/particle-bg.compon
 import { TransferHttpCacheModule } from '@nguniversal/common';
 import { NgtUniversalModule } from '@ng-toolkit/universal';
 
-import 'particles.js';
-export declare var particlesJS: any;
+// import 'particles.js';
+// export declare var particlesJS: any;
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ export declare var particlesJS: any;
     NgtUniversalModule,
   ],
   providers: [
-    { provide: 'particlesJS', useValue: particlesJS }
+    // { provide: 'particlesJS', useValue: particlesJS }
   ],
   bootstrap: [AppComponent]
 })

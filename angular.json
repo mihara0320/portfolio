@@ -34,7 +34,7 @@
               ]
             },
             "scripts": [
-              "node_modules/particles.js/particles.js"
+
             ]
           },
           "configurations": {
@@ -92,7 +92,7 @@
               "src/styles/styles.scss"
             ],
             "scripts": [
-              "node_modules/particles.js/particles.js"
+
             ],
             "assets": [
               "src/assets"

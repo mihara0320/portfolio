@@ -1,4 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+
+declare var window: any;
+declare var particlesJS: any;
 
 @Component({
   selector: 'particle-bg',
@@ -6,11 +10,19 @@ import { Component, OnInit, Inject } from '@angular/core';
   styleUrls: ['./particle-bg.component.scss']
 })
 export class ParticleBgComponent implements OnInit {
-    constructor(@Inject('particlesJS') private particlesJS: any) {
+  isBrowser;
+  constructor(@Inject(PLATFORM_ID) private platformId) {
+    this.isBrowser = isPlatformBrowser(platformId);
   }
+
   ngOnInit() {
-    this.particlesJS.load('particles-js', 'assets/data/particles.json', function () {
-      console.log('callback - particles.js config loaded');
-    });
+    if (this.isBrowser) {
+
+      require('particles.js');
+
+      particlesJS.load('particles-js', 'assets/data/particles.json', function () {
+        console.log('callback - particles.js config loaded');
+      });
+    }
   }
 }
