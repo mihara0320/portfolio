@@ -1,15 +1,19 @@
+<particle-bg></particle-bg>
+
 <block>
   <panel class='screen'
-         [image]="'assets/images/profile-min.JPG'">
+         image="assets/images/profile-min.JPG">
     <h1>{{ info.name }}</h1>
     <h2>{{ info.title1 }}</h2>
   </panel>
+</block>
 
+<block id='source-code'
+       fxLayoutAlign="end">
   <sns-link (click)="openLink('https://github.com/mihara0320/portfolio')"
             [horizontal]="true"
             fxLayout="row"
-            fxLayoutAlign="end center"
-            style="padding: 0 1em;">
+            fxLayoutAlign="end center">
     <svg-icon name="GitHub"
               [svgStyle]="{ 'width.em': 1.5, 'margin.em' : 1 }"></svg-icon>
     <h3> Source code </h3>
@@ -52,10 +56,8 @@
 <block id='contact'>
   <h2>{{ info.motd1 }}</h2>
   <h3>{{ info.motd2 }}</h3>
-  <a mat-stroked-button
-     (click)="openMailClient()">Contact me</a>
-</block>
 
-<!-- <block class='block-body' id='footer'>
-  <div></div>
-</block> -->
+  <button mat-raised-button
+          color="primary"
+          (click)="openMailClient()">Contact me</button>
+</block>

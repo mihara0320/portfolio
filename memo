@@ -1,5 +1,0 @@
-    "cp0": "copyfiles dist/browser/** functions && copyfiles dist/server/** functions",
-    "cp1": "del-cli public && copyfiles -e dist/browser/assets/** -u 1 -f dist/browser/** public",
-    "cp2": "copyfiles -u 2 dist/browser/assets/** public",
-    "rename": "mv public/index.html public/index2.html",
-    "setup": "npm run cp0 && npm run cp1 && npm run cp2 && npm run rename",

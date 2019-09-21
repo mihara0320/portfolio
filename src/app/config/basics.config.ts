@@ -3,7 +3,7 @@ import { IBasics } from '../models';
 export const BASICS: IBasics = {
     name: 'Masaki Ihara',
     title1: 'Software Engineer',
-    title2: 'Software Engineer / Full-stack developer',
+    title2: 'Software Engineer / Full-stack Developer',
     country: 'Estonia',
     city: 'Tallinn',
     bio:
