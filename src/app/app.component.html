@@ -6,6 +6,13 @@
     <h1>{{ info.name }}</h1>
     <h2>{{ info.title1 }}</h2>
   </panel>
+
+  <a id='scroll-down'
+     color="primary"
+     mat-fab
+     href="#bio">
+    <mat-icon>arrow_downward</mat-icon>
+  </a>
 </block>
 
 <block id='source-code'
@@ -22,7 +29,9 @@
 
 <block id='bio'>
   <h1>{{ info.name }}</h1>
-  <h2><mat-icon>work</mat-icon>{{ info.title2 }}</h2>
+  <h2>
+    <mat-icon>work</mat-icon>{{ info.title2 }}
+  </h2>
   <h3 fxLayout="row"
       fxLayoutAlign="start center">
     <mat-icon>home</mat-icon> {{ info.city }}, {{ info.country }}
@@ -62,7 +71,7 @@
   <h2>{{ info.motd1 }}</h2>
   <h3>{{ info.motd2 }}</h3>
 
-  <button id='contact-me' 
+  <button id='contact-me'
           mat-raised-button
           color="primary"
           (click)="openMailClient()">Contact me</button>
