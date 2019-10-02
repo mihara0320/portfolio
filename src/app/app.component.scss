@@ -10,6 +10,7 @@
 #source-code {
   width: 100%;
   padding: 0 1em;
+  background-color: #fff;
 }
 
 #bio {
@@ -20,6 +21,10 @@
   margin: 0 auto;
   padding: 3em;
   background-color: #fff;
+
+  .mat-icon {
+    margin-right: 0.5em;
+  }
 
   @include media-breakpoint-down(sm) {
     padding: 1.5em 0;
@@ -46,6 +51,7 @@
   justify-content: center;
   margin: 0 auto;
   padding: 2em;
+  background-color: #fff;
 
   h2,
   h3,
@@ -53,9 +59,8 @@
     text-align: center;
     margin: 0.5em 0;
   }
-}
 
-#footer {
-  background-color: #7e0343;
-  color: #fff;
+  #contact-me {
+    margin: 2em 0;
+  }
 }
