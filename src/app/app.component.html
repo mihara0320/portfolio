@@ -7,12 +7,12 @@
     <h2>{{ info.title1 }}</h2>
   </panel>
 
-  <a id='scroll-down'
-     color="primary"
-     mat-fab
-     href="#bio">
+  <button id='scroll-down'
+          color="primary"
+          mat-fab
+          (click)="navigateToBio(300)">
     <mat-icon>arrow_downward</mat-icon>
-  </a>
+  </button>
 </block>
 
 <block id='source-code'
