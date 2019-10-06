@@ -1,2 +1,2 @@
 // specifies additional routes for prerender
-export const ROUTES = [];
+export const ROUTES = ["/home", "/portfolios"];
