@@ -8,10 +8,12 @@
 }
 
 #language {
-  bottom: 25px;
-  right: 25px;
-  position: absolute;
-  background-color: grey;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    background-color: black;
+    color: white;
+    padding: 0.5em;
 }
 
 #scroll-down {
