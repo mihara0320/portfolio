@@ -5,14 +5,21 @@
          image="assets/images/profile-min.JPG">
     <h1>{{ 'name' |  translate }}</h1>
     <h2>{{ 'title1' | translate }}</h2>
-    <span (click)="switchLanguage('en')">English</span>&nbsp;
-    <span (click)="switchLanguage('jp')">日本語</span>&nbsp;
+
+    <div id="language">
+      <p>
+        <span (click)="switchLanguage('jp')">日本語</span>
+        <span> / </span>
+        <span (click)="switchLanguage('en')">English</span>
+      </p>
+    </div>
+
   </panel>
 
   <button id='scroll-down'
           color="primary"
           mat-fab
-          (click)="navigateToBio(369)">
+          (click)="navigateToBio(200)">
     <mat-icon>arrow_downward</mat-icon>
   </button>
 </block>
@@ -30,16 +37,16 @@
 </block>
 
 <block id='bio'>
-  <h1>{{ info.name }}</h1>
+  <h1>{{ 'name' | translate }}</h1>
   <h2>
-    <mat-icon>work</mat-icon>{{ info.title2 }}
+    <mat-icon>work</mat-icon>{{ 'title2' | translate }}
   </h2>
   <h3 fxLayout="row"
       fxLayoutAlign="start center">
-    <mat-icon>home</mat-icon> {{ info.city }}, {{ info.country }}
+    <mat-icon>home</mat-icon> {{ 'city' | translate }}, {{ 'country' | translate }}
   </h3>
 
-  <p>{{ info.bio }}</p>
+  <p>{{ 'bio' | translate }}</p>
 </block>
 
 <block id='projects'
@@ -70,11 +77,11 @@
 </block>
 
 <block id='contact'>
-  <h2>{{ info.motd1 }}</h2>
-  <h3>{{ info.motd2 }}</h3>
+  <h2>{{ 'motd1' | translate }}</h2>
+  <h3>{{ 'motd2' | translate }}</h3>
 
   <button id='contact-me'
           mat-raised-button
           color="primary"
-          (click)="openMailClient()">Contact me</button>
+          (click)="openMailClient()">{{ 'contact me' | translate}}</button>
 </block>

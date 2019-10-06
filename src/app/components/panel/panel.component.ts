@@ -17,6 +17,5 @@ export class PanelComponent implements OnInit {
   ngOnInit() {
     this.backgroundImage = `url(${this.image})`;
     this.disabledClass = this.disabled;
-
   }
 }
