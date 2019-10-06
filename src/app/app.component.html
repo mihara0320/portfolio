@@ -9,12 +9,12 @@
     <span (click)="switchLanguage('jp')">日本語</span>&nbsp;
   </panel>
 
-  <a id='scroll-down'
-     color="primary"
-     mat-fab
-     href="#bio">
+  <button id='scroll-down'
+          color="primary"
+          mat-fab
+          (click)="navigateToBio(369)">
     <mat-icon>arrow_downward</mat-icon>
-  </a>
+  </button>
 </block>
 
 <block id='source-code'

@@ -1,13 +1,13 @@
-import { Component, OnInit, PLATFORM_ID, Inject } from "@angular/core";
+import { Component, OnInit, Inject } from "@angular/core";
+import { WINDOW } from "@ng-toolkit/universal";
 import { TranslateService } from "@ngx-translate/core";
-import { isPlatformServer } from "@angular/common";
-
+import { NgAnimateScrollService } from 'ng-animate-scroll';
 import * as simpleIcons from "simple-icons";
 import { SvgIconRegistryService } from "angular-svg-icon";
+
 import { ISocial, IProject, IBasics } from "./models";
 import { appConfig } from "./config";
 
-import { WINDOW } from "@ng-toolkit/universal";
 
 @Component({
   selector: "app-root",
@@ -22,8 +22,8 @@ export class AppComponent implements OnInit {
   constructor(
     @Inject(WINDOW) private window: Window,
     private iconReg: SvgIconRegistryService,
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private animateScrollService: NgAnimateScrollService
   ) {
     this.socials.forEach(s =>
       this.iconReg.addSvg(s.svg, simpleIcons[s.svg].svg)
@@ -31,9 +31,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (isPlatformServer(this.platformId)) {
-      var document: any;
-    }
+
   }
 
   openLink(url) {
@@ -48,5 +46,9 @@ export class AppComponent implements OnInit {
       `mailto:${this.info.email}?subject=${this.info.subject}`,
       "_self"
     );
+  }
+
+  navigateToBio(duration?: number) {
+    this.animateScrollService.scrollToElement('bio', duration)
   }
 }

@@ -15,6 +15,8 @@ import { TranslateModule } from "@ngx-translate/core";
 
 import { NgtUniversalModule } from "@ng-toolkit/universal";
 
+import { NgAnimateScrollService } from 'ng-animate-scroll';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,7 @@ import { NgtUniversalModule } from "@ng-toolkit/universal";
     TranslateModule.forChild()
   ],
   providers: [
-    // { provide: 'particlesJS', useValue: particlesJS }
+    NgAnimateScrollService
   ],
   bootstrap: [AppComponent]
 })
