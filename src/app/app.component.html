@@ -3,8 +3,8 @@
 <block>
   <panel class='screen'
          image="assets/images/profile-min.JPG">
-    <h1>{{ info.name }}</h1>
-    <h2>{{ info.title1 }}</h2>
+    <h1>{{ 'name' |  translate }}</h1>
+    <h2>{{ 'title1' | translate }}</h2>
     <span (click)="switchLanguage('en')">English</span>&nbsp;
     <span (click)="switchLanguage('jp')">日本語</span>&nbsp;
   </panel>

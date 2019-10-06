@@ -3,7 +3,7 @@
     "clientProject": "portfolio",
     "skipInstall": false,
     "http": true,
-    "appId": "serverApp",
+    "appId": "app-root",
     "main": "main.server.ts",
     "serverFileName": "server.ts",
     "serverPort": 4000,

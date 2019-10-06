@@ -1,4 +1,3 @@
-import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 
@@ -27,7 +26,6 @@ import { NgAnimateScrollService } from 'ng-animate-scroll';
   ],
   imports: [
     SharedModule,
-    BrowserModule.withServerTransition({ appId: "serverApp" }),
     TransferHttpCacheModule,
     HttpClientModule,
     NgtUniversalModule,
